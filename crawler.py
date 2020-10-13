@@ -423,7 +423,7 @@ def handler(c, a, container, maxIter):
         data = c.recv(1024)
         link, title = getLinks(container, maxIter)
         for i in range(len(link)):
-            c.send(bytes(title[i] + "€€€" + link[i], 'utf-8'))
+            c.send(bytes(title[i] + "€€€" + link[i] + "\n", 'utf-8'))
         if not data:
             connections.remove(c)
             c.close()
